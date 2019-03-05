@@ -1,0 +1,19 @@
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/variables";
+@import "./base/mixins";
+
+body {
+  margin-top: 50px;
+}
+.ui.block.header {
+  text-align: center;
+}
+.ui.container {
+  width: 760px;
+  padding: 30px;
+  border: 5px solid burlywood;
+}
+.ui.active.dimmer {
+  height: 100%;
+}
