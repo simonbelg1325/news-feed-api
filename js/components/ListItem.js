@@ -1,6 +1,5 @@
 import axios from "axios";
-import Pagination from "./Pagination";
-
+import * as basicLightbox from "basiclightbox";
 export default class ListItem {
   constructor(article, holder) {
     this._article = article;
@@ -26,6 +25,7 @@ export default class ListItem {
                 <p></p>
               </div>
               <div class="extra">
+              ${this._article.created.formatted}
               </div>
             </div>
           </div>
@@ -37,16 +37,25 @@ export default class ListItem {
   extraData() {
     axios
       .get(
-        `https://nieuws.vtm.be/feed/articles?ids=${
+        `https://nieuws.vtm.be/feed/articles?fields=text&ids=${
           this._article.id
         }&fields=video`
       )
       .then(res => {
-        console.log(res.data.response.items);
+        let video = res.data.response.items[0].video;
+        // console.log(res.data.response.items);
         this._articleRef.querySelector(".header").addEventListener(
           "click",
           function(e) {
-            console.log("clicked");
+            basicLightbox
+              .create(
+                `
+	              	<iframe width="560" height="315" src="${
+                    video.url.default
+                  }" frameborder="0" allowfullscreen></iframe>
+              	`
+              )
+              .show();
           }.bind(this)
         );
       });

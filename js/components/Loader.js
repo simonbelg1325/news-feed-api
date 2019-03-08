@@ -8,16 +8,16 @@ export default class Loader {
       "afterbegin",
       `
       <div class="ui active dimmer">
-        <div class="ui indeterminate text loader">Preparing Files</div>
+        <div class="ui indeterminate text loader">Even geduld...</div>
       </div>
       `
     );
     return [...this._holder.querySelectorAll(".ui.active.dimmer")];
   }
-  get show() {
+  static show() {
     document.querySelector(".ui.active.dimmer").classList.add("active");
   }
-  get hide() {
+  static hide() {
     document.querySelector(".ui.active.dimmer").classList.remove("active");
   }
 }
