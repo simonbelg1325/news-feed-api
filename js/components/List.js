@@ -15,7 +15,7 @@ export default class List {
       .get(
         `https://nieuws.vtm.be/feed/articles?count=${
           this._resPerPage
-        }&fields=text&from=${this._end}`
+        }&fields=text&from=${this._end}&sort=mostRecent`
       )
       .then(res => {
         let articles = res.data.response.items;
