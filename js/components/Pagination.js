@@ -8,7 +8,7 @@ export default class Pagination {
     this._start = (this._page - 1) * this._resPerPage;
     this._end = this._page * this._resPerPage;
     this._totalPages = this.numPages();
-    this._list = List.bind(this);
+    this._list = List;
     this.next();
     this.prev();
   }

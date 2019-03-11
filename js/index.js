@@ -10,5 +10,3 @@ const loaderRef = document.querySelector(".ui.segment");
 new Loader(loaderRef);
 new List();
 new Pagination();
-
-window.scrollY(0);
